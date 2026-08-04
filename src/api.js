@@ -1,8 +1,8 @@
-export const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
+export const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:8000'
 
 async function get(path) {
   const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), 3500)
+  const timer = setTimeout(() => controller.abort(), 8000)
   try {
     const res = await fetch(API_BASE + path, { signal: controller.signal })
     if (!res.ok) throw new Error('bad status')
